@@ -13,9 +13,7 @@ const path = require("path");
 const cors = require("cors");
 
 // Configure CORS to allow requests from http://localhost:3000
-app.use(
-  cors({ origin: "chrome-extension://mjcajhldjkidjkennkgajaodhnagpegj" })
-);
+app.use(cors({ origin: "*" }));
 
 app.use(express.json());
 
