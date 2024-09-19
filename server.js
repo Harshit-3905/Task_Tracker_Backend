@@ -9,10 +9,8 @@ dotenv.config();
 const { connectDB } = require("./config/db");
 connectDB();
 const path = require("path");
-// Import the CORS package
 const cors = require("cors");
 
-// Configure CORS to allow requests from http://localhost:3000
 app.use(cors({ origin: "*" }));
 
 app.use(express.json());
@@ -23,8 +21,14 @@ app.use("/api/user", userRoutes);
 const taskRoutes = require("./routes/taskRoutes");
 app.use("/api/task", taskRoutes);
 
+app.get("/",(req,res)=>{
+    res.json({
+        message: "Server is Up"
+    });
+})
+
 setInterval(()=>{
-    console.log("Server is Up")
+    fetch("https://tasktrackerbackend-raao.onrender.com/");
 },14*60*1000);
 
 app.listen(PORT, console.log(`Server Started on Port ${PORT}`));
