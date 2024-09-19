@@ -23,4 +23,8 @@ app.use("/api/user", userRoutes);
 const taskRoutes = require("./routes/taskRoutes");
 app.use("/api/task", taskRoutes);
 
+setInterval(()=>{
+    console.log("Server is Up")
+},14*60*1000);
+
 app.listen(PORT, console.log(`Server Started on Port ${PORT}`));
