@@ -27,8 +27,9 @@ app.get("/",(req,res)=>{
     });
 })
 
-setInterval(()=>{
-    fetch("https://tasktrackerbackend-raao.onrender.com/");
+setInterval(async()=>{
+    const res = await fetch("https://tasktrackerbackend-raao.onrender.com/");
+    console.log(res.message);
 },14*60*1000);
 
 app.listen(PORT, console.log(`Server Started on Port ${PORT}`));
